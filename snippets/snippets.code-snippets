@@ -1,0 +1,68 @@
+{
+    "Flask Basic": {
+        "prefix": [
+            "flask-basic"
+        ],
+        "body": [
+            "from flask import Flask,redirect,url_for,render_template,request",
+            "",
+            "app=Flask(_name__)",
+            "@app.route('/',methods=['GET','POST'])",
+            "def home():",
+            "\tif request.method=='POST':",
+            "\t\t# Handle POST Request here",
+            "\t\treturn render_template('index.html')",
+            "\treturn render_template('index.html')",
+            "",
+            "if __name__ == '__main__':",
+            "\t#DEBUG is SET to TRUE. CHANGE FOR PROD",
+            "\tapp.run(port=5000,debug=True)"
+        ],
+        "description": "Generates the boiler plate code for init of a flask app DEBUG is set to True"
+    },
+    "Flask Login Full":{
+        "prefix": ["flask-login-full","login"],
+        "body": [
+            "#Make sure that flask_login and bcrypt are installed",
+            "from flask_login import login_user,logout_user,current_user,UserMixin",
+            "from werkzeug.security import generate_password_hash, check_password_hash",
+            "from flask_bcrypt import Bcrypt",
+            "",
+            "#Position all of this after the db and app have been initialised",
+            "bcrypt = Bcrypt(app)",
+            "login_manager = LoginManager()",
+            "login_manager.init_app(app)",
+            "@login_manager.user_loader",
+            "def user_loader(user_id):",
+            "\t#TODO change here",
+            "\treturn User.query.get(user_id)"
+        ],
+        "description": "Initializes the login manager, bcrypt and creates a User Loader"
+
+    },
+    "Flask Login User Model":{
+        "prefix": "flask-user-model",
+        "description": "Creates the barebones User model",
+        "body": [
+            "class User(db.Model, UserMixin):",
+            "\t\"\"\"Model for user accounts.\"\"\"",
+
+"    __tablename__ = 'users'",
+"",
+"    id = db.Column(db.Integer,",
+"                   primary_key=True)",
+"    username = db.Column(db.String,",
+"                         nullable=False,",
+"                         unique=False)",
+"    email = db.Column(db.String(40),",
+"                      unique=True,",
+"                      nullable=False)",
+"    password = db.Column(db.String(200),",
+"                         primary_key=False,",
+"                         unique=False,",
+"                         nullable=False)",
+"\tdef __repr__(self):",
+"\t\treturn '<User {}>'.format(self.username)"
+        ]
+    }
+}

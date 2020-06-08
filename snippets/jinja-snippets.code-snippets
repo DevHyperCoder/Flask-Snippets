@@ -1,0 +1,98 @@
+{
+    "If Statement": {
+        "prefix": "if",
+        "body": [
+            "{% if ${1:value} %}",
+            "",
+            "{% else %}",
+            "",
+            "{% endif %}"
+        ],
+        "description": "Generates a if conditional template in jinja templates"
+    },
+    "extends":{
+        "prefix": "extends",
+        "body": [
+            "{% extends \"${1:layout.html}\" %}"
+        ]
+    },
+    "html-extends":{
+        "prefix": "ex{",
+        "body": [
+            "{% extends \"${1:layout.html}\" %}",
+            "{% block ${2:title} %}",
+            "${3:data}",
+            "{% endblock %}",
+            "{% block ${4:body} %}",
+            "${5:data}",
+            "{% endblock %}"
+                
+
+        ]
+    },
+    "block":{
+        "prefix": "block",
+        "body": [
+            "{% block ${1:blockName} %}",
+            "${2:data}",
+            "{% endblock %}",
+        ]
+    },
+    "For Loop": {
+        "prefix": "for",
+        "body": [
+            "{% for ${1:object} in ${2:list} %}",
+            "",
+            "{% endfor %}"
+        ],
+        "description": "Generates a for loop"
+    },
+    "For Loop Range": {
+        "prefix": "fori",
+        "body": [
+            "{% for ${1:i} in range(0,${2:len}) %}",
+            "",
+            "{% endfor %}"
+        ],
+        "description": "Generates a for loop to loop over a range of numbers from 0 to {{len}}"
+    },
+    "HTML Template with BS4": {
+        "prefix": "hbs4",
+        "description": "Generates a HTML template with Bootstrap4 CSS",
+        "body": [
+            "<!DOCTYPE html>",
+            "<html lang=\"en\">",
+            "<head>",
+            "    <meta charset=\"UTF-8\">",
+            "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
+            "    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css\">",
+            "    <title>${1:Document}</title>",
+            "</head>",
+            "<body>",
+            "",
+            "</body>",
+            "</html>",
+        ]
+    },
+    "HTML Template with BS4 and JS": {
+        "prefix": "hbs4js",
+        "description": "Generates a HTML template with Bootstrap4 CSS and JS",
+        "body": [
+            "<!DOCTYPE html>",
+            "<html lang=\"en\">",
+            "<head>",
+            "    <meta charset=\"UTF-8\">",
+            "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
+            "    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css\">",
+            "    <script src=\"https://code.jquery.com/jquery-3.2.1.slim.min.js\" integrity=\"sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN\" crossorigin=\"anonymous\"></script>",
+            "    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js\" integrity=\"sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q\" crossorigin=\"anonymous\"></script>",
+            "    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js\" integrity=\"sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl\" crossorigin=\"anonymous\"></script>",
+            "    <title> ${1:Document} </title>",
+            "</head>",
+            "<body>",
+            "",
+            "</body>",
+            "</html>",
+        ]
+    }
+}

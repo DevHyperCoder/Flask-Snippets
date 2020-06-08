@@ -1,0 +1,25 @@
+{
+    "name": "flask-snippets",
+    "displayName": "Flask Snippets",
+    "description": "",
+    "version": "0.0.2",
+    "engines": {
+        "vscode": "^1.44.0"
+    },
+    "publisher": "CodeYard",
+    "categories": [
+        "Snippets"
+    ],
+    "contributes": {
+        "snippets": [{
+                "language": "python",
+                "path": "./snippets/snippets.code-snippets"
+            },
+            {
+
+                "language": "html",
+                "path": "./snippets/jinja-snippets.code-snippets"
+            }
+        ]
+    }
+}
