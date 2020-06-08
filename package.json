@@ -10,6 +10,12 @@
     "categories": [
         "Snippets"
     ],
+    "repository": {
+        "directory": ".git",
+        "url": "https://github.com/DevHyperCoder/Flask-Snippets.git"
+
+
+    },
     "contributes": {
         "snippets": [{
                 "language": "python",
