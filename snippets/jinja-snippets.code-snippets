@@ -1,6 +1,11 @@
 {
-    "If Statement": {
-        "prefix": "if",
+    "End if statement": {
+        "prefix": "endif",
+        "body": "{% endif %}",
+        "description": "Genreates the endif for jinja"
+    },
+    "If Else Statement": {
+        "prefix": "ifelse",
         "body": [
             "{% if ${1:value} %}",
             "",
@@ -10,13 +15,30 @@
         ],
         "description": "Generates a if conditional template in jinja templates"
     },
-    "extends":{
-        "prefix": "extends",
+    "If Statement": {
+        "prefix": "if",
         "body": [
-            "{% extends \"${1:layout.html}\" %}"
-        ]
+            "{% if ${1:value} %}",
+            "",
+            "{% endif %}"
+        ],
+        "description": "Generates a if statement in jinja template"
     },
-    "html-extends":{
+    "Else Statement": {
+        "prefix": "else",
+        "description": "Generates a else statement",
+        "body": "{% else %}"
+    },
+    "Else if statement": {
+        "prefix": "elif",
+        "body": "{% elif ${1:condition} %}",
+        "description": "Generates a else if statement in Jinja"
+    },
+    "extends": {
+        "prefix": "extends",
+        "body": "{% extends \"${1:layout.html}\" %}"
+    },
+    "html-extends": {
         "prefix": "ex{",
         "body": [
             "{% extends \"${1:layout.html}\" %}",
@@ -26,11 +48,9 @@
             "{% block ${4:body} %}",
             "${5:data}",
             "{% endblock %}"
-                
-
         ]
     },
-    "block":{
+    "block": {
         "prefix": "block",
         "body": [
             "{% block ${1:blockName} %}",
