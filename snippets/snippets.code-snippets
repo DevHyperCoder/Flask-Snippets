@@ -6,7 +6,7 @@
         "body": [
             "from flask import Flask,redirect,url_for,render_template,request",
             "",
-            "app=Flask(_name__)",
+            "app=Flask(__name__)",
             "@app.route('/',methods=['GET','POST'])",
             "def home():",
             "\tif request.method=='POST':",
