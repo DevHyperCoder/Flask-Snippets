@@ -1,84 +1,113 @@
 {
-    "Flask Basic": {
-        "prefix": [
-            "flask-basic"
-        ],
-        "body": [
-            "from flask import Flask,redirect,url_for,render_template,request",
-            "",
-            "app=Flask(__name__)",
-            "@app.route('/',methods=['GET','POST'])",
-            "def home():",
-            "\tif request.method=='POST':",
-            "\t\t# Handle POST Request here",
-            "\t\treturn render_template('index.html')",
-            "\treturn render_template('index.html')",
-            "",
-            "if __name__ == '__main__':",
-            "\t#DEBUG is SET to TRUE. CHANGE FOR PROD",
-            "\tapp.run(port=5000,debug=True)"
-        ],
-        "description": "Generates the boiler plate code for init of a flask app DEBUG is set to True"
-    },
-    "Flask Login Full": {
-        "prefix": [
-            "flask-login-full",
-            "login"
-        ],
-        "body": [
-            "#Make sure that flask_login and bcrypt are installed",
-            "from flask_login import login_user,logout_user,current_user,UserMixin",
-            "from werkzeug.security import generate_password_hash, check_password_hash",
-            "from flask_bcrypt import Bcrypt",
-            "",
-            "#Position all of this after the db and app have been initialised",
-            "bcrypt = Bcrypt(app)",
-            "login_manager = LoginManager()",
-            "login_manager.init_app(app)",
-            "@login_manager.user_loader",
-            "def user_loader(user_id):",
-            "\t#TODO change here",
-            "\treturn User.query.get(user_id)"
-        ],
-        "description": "Initializes the login manager, bcrypt and creates a User Loader"
-    },
-    "Flask Login User Model": {
-        "prefix": "flask-user-model",
-        "description": "Creates the barebones User model",
-        "body": [
-            "class User(db.Model, UserMixin):",
-            "\t\"\"\"Model for user accounts.\"\"\"",
-            "    __tablename__ = 'users'",
-            "",
-            "    id = db.Column(db.Integer,",
-            "                   primary_key=True)",
-            "    username = db.Column(db.String,",
-            "                         nullable=False,",
-            "                         unique=False)",
-            "    email = db.Column(db.String(40),",
-            "                      unique=True,",
-            "                      nullable=False)",
-            "    password = db.Column(db.String(200),",
-            "                         primary_key=False,",
-            "                         unique=False,",
-            "                         nullable=False)",
-            "\tdef __repr__(self):",
-            "\t\treturn '<User {}>'.format(self.username)"
-        ]
-    },
-    "Flask Blueprint": {
-        "body": [
-            "#Run pip install flask-blueprint",
-            "from flask import Blueprint",
-            "${1:blueprint} = Blueprint('${1:blueprint}',__name__)"
-        ],
-        "prefix": "blueprint","description": "Genreates a Blueprint setup for falsk"
-        
-    },
-    "Flask register blueprint":{
-        "prefix": "register_blueprint",
-        "body": ["#Import the blueprijnt first and install Blueprint","app.register_blueprint(${1:blueprint_name})"],
-        "description": "Registers the blueprint using app.register_blueprint"
-    }
-    
+  "Flask Basic": {
+    "prefix": ["flask-basic"],
+    "body": [
+      "from flask import Flask,redirect,url_for,render_template,request",
+      "",
+      "app=Flask(__name__)",
+      "@app.route('/',methods=['GET','POST'])",
+      "def home():",
+      "\tif request.method=='POST':",
+      "\t\t# Handle POST Request here",
+      "\t\treturn render_template('index.html')",
+      "\treturn render_template('index.html')",
+      "",
+      "if __name__ == '__main__':",
+      "\t#DEBUG is SET to TRUE. CHANGE FOR PROD",
+      "\tapp.run(port=5000,debug=True)"
+    ],
+    "description": "Generates the boiler plate code for init of a flask app DEBUG is set to True"
+  },
+  "Flask Login Full": {
+    "prefix": ["flask-login-full", "login"],
+    "body": [
+      "#Make sure that flask_login and bcrypt are installed",
+      "from flask_login import login_user,logout_user,current_user,UserMixin",
+      "from werkzeug.security import generate_password_hash, check_password_hash",
+      "from flask_bcrypt import Bcrypt",
+      "",
+      "#Position all of this after the db and app have been initialised",
+      "bcrypt = Bcrypt(app)",
+      "login_manager = LoginManager()",
+      "login_manager.init_app(app)",
+      "@login_manager.user_loader",
+      "def user_loader(user_id):",
+      "\t#TODO change here",
+      "\treturn User.query.get(user_id)"
+    ],
+    "description": "Initializes the login manager, bcrypt and creates a User Loader"
+  },
+  "Flask Login User Model": {
+    "prefix": "flask-user-model",
+    "description": "Creates the barebones User model",
+    "body": [
+      "class User(db.Model, UserMixin):",
+      "\t\"\"\"Model for user accounts.\"\"\"",
+      "    __tablename__ = 'users'",
+      "",
+      "    id = db.Column(db.Integer,",
+      "                   primary_key=True)",
+      "    username = db.Column(db.String,",
+      "                         nullable=False,",
+      "                         unique=False)",
+      "    email = db.Column(db.String(40),",
+      "                      unique=True,",
+      "                      nullable=False)",
+      "    password = db.Column(db.String(200),",
+      "                         primary_key=False,",
+      "                         unique=False,",
+      "                         nullable=False)",
+      "\tdef __repr__(self):",
+      "\t\treturn '<User {}>'.format(self.username)"
+    ]
+  },
+  "Flask Blueprint": {
+    "body": [
+      "#Run pip install flask-blueprint",
+      "from flask import Blueprint",
+      "${1:blueprint} = Blueprint('${1:blueprint}',__name__)"
+    ],
+    "prefix": "blueprint",
+    "description": "Genreates a Blueprint setup for falsk"
+  },
+  "Flask register blueprint": {
+    "prefix": "register_blueprint",
+    "body": ["app.register_blueprint(${1:blueprint_name})"],
+    "description": "Registers the blueprint using app.register_blueprint"
+  },
+  "App Route decorater": {
+    "prefix": "@app.r",
+    "body": ["@app.route(\"${1:route}\")", "def ${2:func}():"],
+    "description": "@app.route(\"\") and a method"
+  },
+  "Render Template": {
+    "prefix": "rt",
+    "body": "return render_template(\"${1:html}\",${2:var}=${3:var})",
+    "description": "Render Template with 1 custom variable"
+  },
+  "Redirect with url for": {
+    "prefix": "rdu",
+    "body": "return redirect(url_for(\"${1:func}\"))",
+    "description": "Redirect with url_for"
+  },
+  "Redirect": {
+    "prefix": "rd",
+    "body": "return redirect(\"${1:func}\")",
+    "description": "Redirect"
+  },
+  "Error handler": {
+    "prefix": "err",
+    "body": "@app.errorhandler(${1:404})\ndef ${2:bar}(error):\n\t\treturn render_template('${3:error.html}'), ${1:404}\n$0",
+    "description": "Error handler for flask"
+  },
+  "Flask logging": {
+    "prefix": "log",
+    "description": "Log with flask",
+    "body": "app.logger.${1:debug}(\"${2:A message}\")\n$0"
+  },
+  "confp":{
+      "prefix": "confp",
+      "body": "app.config.from_pyfile\"config.py\")",
+      "description": "Take config from a python file"
+  }
 }

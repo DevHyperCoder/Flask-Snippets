@@ -40,7 +40,7 @@ Check out the [Discord Server](https://discord.gg/z8XHVR) for helping improve th
 | hbs4    | html with bootstrap4    |
 | hbs4js  | html + bs4 + js         |
 
-### Python
+## Commands (Python)
 
 | Trigger            | Description                     |
 |--------------------|---------------------------------|
@@ -49,3 +49,8 @@ Check out the [Discord Server](https://discord.gg/z8XHVR) for helping improve th
 | flask-user-model   | Barebones User Model for Flask  |
 | blueprint          | Flask Blueprint                 |
 | register_blueprint | Register blueprint              |
+| rdu                | Redirect with url_for           |
+| rd                 | Redirect                        |
+| err                | Error Handler                   |
+| log                | Logger                          |
+| confp              | To take config file from py file|
